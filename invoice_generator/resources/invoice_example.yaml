@@ -1,0 +1,25 @@
+invoice_config:
+  file_version: 1
+  locale: europe
+  invoice:
+    document_number: 02/2022
+    date_of_issue: 2022.02.28
+    sale_date: 2022.02.28
+    seller: |
+      Seller company
+      Seller Address
+      Seller identification code
+    buyer: |
+      Buyer company
+      Buyer Address
+      Buyer identification code
+    invoice_items:
+      - name: "Item"
+        unit: sz.
+        amount: 118.22
+        net_single_price: 111.12
+        tax: 0.23
+    logo_url: 'https://raw.githubusercontent.com/markowanga/theliver-assets/master/logo.png'
+    account_number: 64375634275678435893425784326
+    currency: zł
+    days_for_pay: 15

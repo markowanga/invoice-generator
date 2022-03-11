@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <style>
+        .no-wrap {
+            white-space: nowrap;
+        }
+
+        .center-text-align {
+            text-align: center;
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+</head>
+<body>
+<div class="text-center">
+    <img src="{{logo_url}}" alt="Company logo" style="max-height: 75px">
+    <h1>Faktura VAT {{document_number}}</h1>
+</div>
+
+Data wystawienia: {{date_of_issue}}<br>
+Data sprzedaży: {{sale_date}}<br>
+<br>
+<br>
+<table class="table">
+    <tr>
+        <td>
+            <div>
+                <b>Sprzedawca:</b><br>
+                {% for line in seller %}
+                {{line}}<br>
+                {% endfor %}
+            </div>
+        </td>
+        <td>
+            <div>
+                <b>Nabywca:</b><br>
+                {% for line in buyer %}
+                {{line}}<br>
+                {% endfor %}
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
+<table class="table">
+    <tr>
+        <th>Lp.</th>
+        <th>Usługa</th>
+        <th>Jm</th>
+        <th>Ilość</th>
+        <th>Cena jednostkowa</th>
+        <th>Stawka VAT</th>
+        <th>Kwota VAT</th>
+        <th>Wartość brutto</th>
+    </tr>
+    {% for item in invoice_items %}
+    <tr>
+        <td>{{item['number']}}.</td>
+        <td>{{item['name']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['unit']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['amount']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['item_price']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['tax']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['tax_value']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['total_value']}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="no-wrap"></td>
+        <td class="no-wrap"></td>
+        <td class="no-wrap"></td>
+        <td class="no-wrap"><b>Suma: </b></td>
+        <td class="no-wrap" style="text-align:right"><b>{{total_invoice_tax}}</b></td>
+        <td class="no-wrap" style="text-align:right"><b>{{total_invoice_value}}</b></td>
+    </tr>
+</table>
+
+Do zapłaty: {{total_invoice_value}}<br>
+Sposób zapłaty: Przelew<br>
+Termin zapłaty: {{date_of_payment}}<br>
+Numer konta: {{account_number}}<br>
+<br>
+<br>
+<table class="table">
+    <tr>
+        <td class="center-text-align">
+            <div>
+                <b>Osoba upoważniona do wystawienia faktury</b>
+            </div>
+        </td>
+        <td class="center-text-align">
+            <div>
+                <b>Osoba upoważniona do odebrania faktury</b>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
