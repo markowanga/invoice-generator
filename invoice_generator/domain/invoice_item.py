@@ -26,4 +26,7 @@ class InvoiceItem:
         return self.amount * self.net_single_price * self.tax
 
     def count_total_value(self) -> float:
-        return self.amount * self.net_single_price + self.count_total_tax()
+        return self.count_total_value_without_tax() + self.count_total_tax()
+
+    def count_total_value_without_tax(self) -> float:
+        return self.amount * self.net_single_price

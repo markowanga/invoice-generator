@@ -25,7 +25,9 @@ class InvoiceDetailsProcessor:
             'item_price': self._price_formatter.format_price(item.net_single_price, currency),
             'tax': f'{self._price_formatter.format_value(item.tax * 100)}%',
             'tax_value': self._price_formatter.format_price(item.count_total_tax(), currency),
-            'total_value': self._price_formatter.format_price(item.count_total_value(), currency)
+            'total_value': self._price_formatter.format_price(item.count_total_value(), currency),
+            'total_price_without_tax': self._price_formatter.format_price(
+                item.count_total_value_without_tax(), currency)
         }
 
     def to_config(self, invoice: Invoice) -> Dict[str, Any]:
@@ -47,5 +49,8 @@ class InvoiceDetailsProcessor:
                      invoice.invoice_items]), invoice.currency),
             'total_invoice_tax': self._price_formatter.format_price(
                 sum([self._price_formatter.round_price(it.count_total_tax()) for it in
+                     invoice.invoice_items]), invoice.currency),
+            'total_invoice_without_tax': self._price_formatter.format_price(
+                sum([self._price_formatter.round_price(it.count_total_value_without_tax()) for it in
                      invoice.invoice_items]), invoice.currency)
         }
