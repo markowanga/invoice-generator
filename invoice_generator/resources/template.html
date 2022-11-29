@@ -63,6 +63,7 @@ Data sprzedaży: {{sale_date}}<br>
         <th>Ilość</th>
         <th>Cena jednostkowa</th>
         <th>Stawka VAT</th>
+        <th>Wartość netto</th>
         <th>Kwota VAT</th>
         <th>Wartość brutto</th>
     </tr>
@@ -74,6 +75,7 @@ Data sprzedaży: {{sale_date}}<br>
         <td class="no-wrap" style="text-align:right">{{item['amount']}}</td>
         <td class="no-wrap" style="text-align:right">{{item['item_price']}}</td>
         <td class="no-wrap" style="text-align:right">{{item['tax']}}</td>
+        <td class="no-wrap" style="text-align:right">{{item['total_price_without_tax']}}</td>
         <td class="no-wrap" style="text-align:right">{{item['tax_value']}}</td>
         <td class="no-wrap" style="text-align:right">{{item['total_value']}}</td>
     </tr>
@@ -85,6 +87,7 @@ Data sprzedaży: {{sale_date}}<br>
         <td class="no-wrap"></td>
         <td class="no-wrap"></td>
         <td class="no-wrap"><b>Suma: </b></td>
+        <td class="no-wrap" style="text-align:right"><b>{{total_invoice_without_tax}}</b></td>
         <td class="no-wrap" style="text-align:right"><b>{{total_invoice_tax}}</b></td>
         <td class="no-wrap" style="text-align:right"><b>{{total_invoice_value}}</b></td>
     </tr>

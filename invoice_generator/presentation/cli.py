@@ -33,9 +33,9 @@ def cli():
 
 
 @cli.command("to_html")
-@click.option('--invoice_metadata', '-d', help='File with invoice details', type=click.Path(),
+@click.option('--invoice_metadata', '-m', help='File with invoice details', type=click.Path(),
               required=True)
-@click.option('--output_file', '-d', help='HTML file to save invoice', type=click.Path(),
+@click.option('--output_file', '-o', help='HTML file to save invoice', type=click.Path(),
               required=True)
 def to_html(invoice_metadata: str, output_file: str):
     invoice_config = load_config(invoice_metadata)
@@ -49,9 +49,9 @@ def to_html(invoice_metadata: str, output_file: str):
 
 
 @cli.command("to_pdf")
-@click.option('--invoice_metadata', '-d', help='File with invoice details', type=click.Path(),
+@click.option('--invoice_metadata', '-m', help='File with invoice details', type=click.Path(),
               required=True)
-@click.option('--output_file', '-d', help='PDF file to save invoice', type=click.Path(),
+@click.option('--output_file', '-o', help='PDF file to save invoice', type=click.Path(),
               required=True)
 def to_pdf(invoice_metadata: str, output_file: str):
     invoice_config = load_config(invoice_metadata)

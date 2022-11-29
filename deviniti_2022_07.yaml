@@ -1,0 +1,25 @@
+invoice_config:
+  file_version: 1
+  locale: europe
+  invoice:
+    document_number: 07/2022
+    date_of_issue: 2022.07.31
+    sale_date: 2022.07.31
+    seller: |
+      TheLiver Boy Marcin Wątroba
+      50-231 Wrocław, ul. Zakładowa 9H/9.
+      NIP: 8952237191
+    buyer: |
+      DEVINITI sp. z o.o.
+      53-128 Wrocław, ul. Sudecka 153
+      NIP: 8971700419
+    invoice_items:
+      - name: "Usługi związane z projektowaniem i rozwojem technologii informatycznych"
+        unit: godz.
+        amount: 88.5
+        net_single_price: 132.26
+        tax: 0.23
+    logo_url: 'https://raw.githubusercontent.com/markowanga/theliver-assets/master/logo.png'
+    account_number: 89156000132016912460000001
+    currency: zł
+    days_for_pay: 15
