@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Any, Dict
 
 from jinja2 import Template
 
@@ -13,4 +13,6 @@ class Jinja2TemplateRenderer(TemplateRenderer):
         self._resource_provider = resource_provider
 
     def render(self, template_file: str, input_dict: Dict[str, Any]) -> str:
-        return Template(self._resource_provider.get_resource(template_file)).render(input_dict)
+        return Template(self._resource_provider.get_resource(template_file)).render(
+            input_dict
+        )

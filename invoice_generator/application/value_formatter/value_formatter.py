@@ -4,7 +4,6 @@ from arrow import Arrow
 
 
 class ValueFormatter(ABC):
-
     @abstractmethod
     def round_price(self, value: float) -> float:
         pass

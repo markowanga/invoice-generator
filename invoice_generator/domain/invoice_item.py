@@ -15,11 +15,11 @@ class InvoiceItem:
     @classmethod
     def from_dict(cls, input_dict: Dict[str, Any]) -> InvoiceItem:
         return cls(
-            name=input_dict['name'],
-            unit=input_dict['unit'],
-            amount=input_dict['amount'],
-            net_single_price=input_dict['net_single_price'],
-            tax=input_dict['tax']
+            name=input_dict["name"],
+            unit=input_dict["unit"],
+            amount=input_dict["amount"],
+            net_single_price=input_dict["net_single_price"],
+            tax=input_dict["tax"],
         )
 
     def count_total_tax(self) -> float:

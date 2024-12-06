@@ -18,7 +18,9 @@ def load_dynaconf(path: str) -> Dynaconf:
 
 def load_config(path: str) -> InvoiceConfig:
     dynaconf = load_dynaconf(path)
-    invoice_config = dynaconf['invoice_config']
-    return InvoiceConfig(invoice_config['file_version'], invoice_config['locale'],
-                         Invoice.from_dict(invoice_config['invoice']))
-
+    invoice_config = dynaconf["invoice_config"]
+    return InvoiceConfig(
+        invoice_config["file_version"],
+        invoice_config["locale"],
+        Invoice.from_dict(invoice_config["invoice"]),
+    )
