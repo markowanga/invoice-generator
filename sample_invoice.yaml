@@ -1,0 +1,25 @@
+invoice_config:
+  file_version: 1
+  locale: europe
+  invoice:
+    document_number: 01/2025
+    date_of_issue: 2025.01.31
+    sale_date: 2025.01.31
+    seller: |
+      Nazwa firmy
+      Adres ... 
+      NIP: ...
+    buyer: |
+      Nazwa firmy
+      Adres ... 
+      NIP: ...
+    invoice_items:
+      - name: "Usługi związane z projektowaniem i rozwojem technologii informatycznych"
+        unit: godz.
+        amount: 10
+        net_single_price: 50.00
+        tax: 0.23
+    logo_url: 'https://raw.githubusercontent.com/markowanga/theliver-assets/master/logo.png'
+    account_number: 000000000000000000
+    currency: zł
+    days_for_pay: 15
