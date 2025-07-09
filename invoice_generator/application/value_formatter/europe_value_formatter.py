@@ -1,3 +1,5 @@
+import math
+
 from arrow import Arrow
 
 from invoice_generator.application.value_formatter.value_formatter import \
@@ -6,7 +8,12 @@ from invoice_generator.application.value_formatter.value_formatter import \
 
 class EuropeValueFormatter(ValueFormatter):
     def round_price(self, value: float) -> float:
-        return round(value, 2)
+        scaled: float = value * 100
+        frac: float = scaled - math.floor(scaled)
+        if frac == 0.5:
+            return math.floor(scaled) / 100
+        else:
+            return round(value, 2)
 
     def format_date(self, date: Arrow) -> str:
         return date.format("DD.MM.YYYY")
